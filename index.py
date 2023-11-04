@@ -1,9 +1,11 @@
 #Importando as bibliotecas
 import DataBaser
+import Functions
+import re #Verifica o email
 from tkinter import *
 from tkinter import messagebox
 from tkinter import ttk
-from DataBaser import teste #Para passar as funções para outra classe depois
+from Functions import verificaEmail
 
 #Criando janela inicial
 jan = Tk()
@@ -53,14 +55,19 @@ def Register():
         user        = UserEntry.get()
         password    = passEntry.get()
         
-        if(name == "" or email == "" or user == "" or password == ""):
-            messagebox.showerror(title="Register Error", message="Preencha Todos os Campos")
+        if verificaEmail(email):
+            print("O e-mail é válido.")
+            if(name == "" or email == "" or user == "" or password == ""):
+                messagebox.showerror(title="Register Error", message="Preencha Todos os Campos")
+            else:
+                DataBaser.cursor.execute("""
+                INSERT INTO Users(name, email, user, password) VALUES(?,?,?,?)
+                """, (name, email, user, password))
+                DataBaser.conn.commit() #Para salvar as alterações
+                messagebox.showinfo(title="Register Info", message="Account Created")
         else:
-            DataBaser.cursor.execute("""
-            INSERT INTO Users(name, email, user, password) VALUES(?,?,?,?)
-            """, (name, email, user, password))
-            DataBaser.conn.commit() #Para salvar as alterações
-            messagebox.showinfo(title="Register Info", message="Account Created")
+            print("O e-mail é inválido.")
+        
 
     RegisterButton1 = ttk.Button(RightFrame, text="Register", width=20, command=RegisterToDataBase)
     RegisterButton1.place(x=110,y=260)
