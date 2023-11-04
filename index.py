@@ -1,4 +1,5 @@
 #Importando as bibliotecas
+import DataBaser
 from tkinter import *
 from tkinter import messagebox
 from tkinter import ttk
@@ -45,7 +46,19 @@ def Register():
     ReturnButton1 = ttk.Button(RightFrame, text="Return", width=20, command=ReturnToLogin)
     ReturnButton1.place(x=110,y=225)
     
-    RegisterButton1 = ttk.Button(RightFrame, text="Register", width=20, command=Register)
+    def RegisterToDataBase():
+        name        = NomeEntry.get()
+        email       = EmailEntry.get()
+        user        = UserEntry.get()
+        password    = passEntry.get()
+        
+        DataBaser.cursor.execute("""
+            INSERT INTO Users(name, email, user, password) VALUES(?,?,?,?)
+        """, (name, email, user, password))
+        DataBaser.conn.commit() #Para salvar as alterações
+        messagebox.showinfo(title="Register Info", message="Account Created")
+    
+    RegisterButton1 = ttk.Button(RightFrame, text="Register", width=20, command=RegisterToDataBase)
     RegisterButton1.place(x=110,y=260)
     
 
@@ -78,8 +91,6 @@ LoginButton.place(x=110,y=225)
 
 RegisterButton = ttk.Button(RightFrame, text="Register", width=20, command=Register)
 RegisterButton.place(x=110,y=260)
-
-
 
 
 jan.mainloop() #Finalizando as configurações da janela
