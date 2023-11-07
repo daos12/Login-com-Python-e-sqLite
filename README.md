@@ -33,7 +33,7 @@ Sistema de Login com Python utilizando a biblioteca tkinter com integração do 
 3. Instalar o banco de dados SQLite. [Tutorial de instalação](https://www.alura.com.br/artigos/sqlite-da-instalacao-ate-primeira-tabela?utm_term=&utm_campaign=%5BSearch%5D+%5BPerformance%5D+-+Dynamic+Search+Ads+-+Artigos+e+Conteúdos&utm_source=adwords&utm_medium=ppc&hsa_acc=7964138385&hsa_cam=11384329873&hsa_grp=111087461203&hsa_ad=645853715422&hsa_src=g&hsa_tgt=aud-456779235754:dsa-843358956400&hsa_kw=&hsa_mt=&hsa_net=adwords&hsa_ver=3&gad_source=1&gclid=Cj0KCQjwtJKqBhCaARIsAN_yS_k4ys176y1O1yiNsuYhyfZs5gOl_RF9lLglshTTBzlxvJ5UBR3J4TgaAmM2EALw_wcB)
 4. Para funcionalidade de envio de código de verificação, e necessario criar uma senha de aplicativo.  [Tutorial senha de aplicativo](https://atendimento.tecnospeed.com.br/hc/pt-br/articles/4418115119127-Como-criar-senha-de-aplicativo-para-email)
 5. Altere as configurações do servidor SMTP do arquivo [Functions.py](https://github.com/daos12/Login-com-Python-e-sqLite/blob/main/Functions.py) para o seu email e senha de aplicativo. Configuração detalhada logo a baixo.
-6. 
+ 
 ![image](https://github.com/daos12/Login-com-Python-e-sqLite/assets/112141783/7ceff08d-fdd6-42fd-bb31-f010bce22e5d)
 
 
